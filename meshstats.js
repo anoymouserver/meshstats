@@ -2,7 +2,7 @@
 // |  File: meshstats.js    UTF-8
 // |  Author: anoymouserver
 // |  Status:
-// |  Revision: 2015/12/16
+// |  Revision: 2016/01/01
 // +---------------------------------------------------------------------------
 'use strict';
 
@@ -53,7 +53,7 @@ stats.getCurrentStats = function() {
         var stats_tmp = {nodes: {}};
 
         stats_tmp.nodes.online = nodes.filter(function (d) {
-                return d.flags.online;
+                return d.flags.online && !d.flags.gateway;
             }).length;
         stats_tmp.nodes.total = nodes.filter(function (d) {
                 return !d.flags.gateway;
